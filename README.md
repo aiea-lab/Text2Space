@@ -1,5 +1,6 @@
 
 # Text2Space: A Benchmark Pairing Spatial Descriptions, ASCII Layouts, and Spatial QA
+
 Code and data for our COLM 2026 paper - Learning to Draw ASCII Improves Spatial Reasoning in Language Models
 
 **Shiyuan Huang\*, Li Liu\*, Jincheng He, Leilani H. Gilpin** — University of California, Santa Cruz
@@ -22,7 +23,18 @@ ds = load_dataset("ShiyuanHuang/Text2Space")
 
 ## Code
 
-**Coming soon.** We are preparing the data generation, evaluation, and fine-tuning scripts for release. This repository will host:
+**Coming soon.** We are preparing the data generation, evaluation, and fine-tuning scripts for release. Please watch this repo for updates. Thanks!
 
-Watch this repository for updates.
 
+## Citation
+
+```bibtex
+@article{huang2026learning,
+  title   = {Learning to Draw {ASCII} Improves Spatial Reasoning in Language Models},
+  author  = {Huang, Shiyuan and Liu, Li and He, Jincheng and Gilpin, Leilani H.},
+  journal = {arXiv preprint arXiv:2604.14641},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2604.14641}
+}
+```
+Accepted at COLM 2026. We will update this entry with the proceedings citation once available.
