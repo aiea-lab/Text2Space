@@ -1,0 +1,19 @@
+{
+  "description": "A is to the right of D. B is to the north and to the west of A. C is at the 1 o'clock position from A. D is at the bottom-left of C. D is southward from B.",
+  "query_relation": "Where is A relative to D?",
+  "query_type": "full",
+  "label": "right",
+  "detailed_relations": "A is below and to the right of B. A is below and to the left of C. A is to the right of D. B is above and to the left of A. B is to the left of C. B is above D. C is above and to the right of A. C is to the right of B. C is above and to the right of D. D is to the left of A. D is below B. D is below and to the left of C.",
+  "ascii": {
+    "simple": "B     C\nD  A",
+    "grid": "+--+--+--+\n|B |  |C |\n+--+--+--+\n|D |A |  |\n+--+--+--+",
+    "panel": "┌──────────┐\n│ B     C  │\n│ D  A     │\n└──────────┘"
+  },
+  "terminology_used": "spatial+cardinal+clock",
+  "num_components": 4,
+  "num_relations": 5,
+  "is_directly_stated": true,
+  "has_unique_layout": false,
+  "ambiguous_stages": 4,
+  "id": "id-1"
+}

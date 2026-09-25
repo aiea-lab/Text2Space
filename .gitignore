@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+
+# Environment and credentials
+.env
+*.token
+
+# Generated data and artifacts
+datasets/spatial_data.jsonl
+datasets/spatial_data_untested.jsonl
+datasets/spatial_data_with_reasoning.jsonl
+datasets/images/
+datasets/*_stats.txt
+datasets/spatial_analysis*
+datasets/babi_task19_pathfinding.json
+datasets/sparp_stepgame.json
+datasets/spartqa.json
+datasets/spartqa_unique.json
+results/
+outputs/
+saved_models/
+logs/
+runs/
+src/test/ascii_evaluator_test_results.json
+src/test/ascii_evaluator_test_report.txt
+
+# OS
+.DS_Store

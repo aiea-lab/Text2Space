@@ -1,0 +1,28 @@
+[project]
+name = "text2space"
+version = "1.0.0"
+description = "Code and data for Learning to Draw ASCII Improves Spatial Reasoning in Language Models (COLM 2026)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "accelerate>=1.12.0",
+    "matplotlib>=3.10.7",
+    "openai>=2.8.1",
+    "pandas>=2.3.3",
+    "peft>=0.18.0",
+    "pip>=25.3",
+    "pre-commit>=4.5.0",
+    "python-dotenv>=1.2.1",
+    "qwen-vl-utils>=0.0.14",
+    "seaborn>=0.13.2",
+    "tensorboard>=2.20.0",
+    "tensorboardx>=2.6.4",
+    "torch>=2.9.0",
+    "tqdm>=4.67.1",
+    "transformers>=4.57.1",
+    "trl>=0.26.2",
+    "vllm==0.11.2; sys_platform == 'linux'",
+]
+
+[tool.black]
+line-length = 88
