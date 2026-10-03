@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning to Draw ASCII Improves Spatial Reasoning in Language Models</title>
+  <meta name="description" content="People sketch to think about space. Do language models? Try a spatial puzzle, sketch it, and see what a sketch looks like in plain text.">
+  <meta property="og:title" content="Learning to Draw ASCII Improves Spatial Reasoning in Language Models">
+  <meta property="og:description" content="People sketch to think about space. Do language models?">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="puzzle.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+<header class="hero">
+  <p class="eyebrow">COLM 2026</p>
+  <h1>Learning to Draw ASCII Improves Spatial Reasoning in Language Models</h1>
+  <p class="authors">Shiyuan Huang*, Li Liu*, Jincheng He, Leilani H. Gilpin</p>
+  <p class="affiliation">University of California, Santa Cruz <span>*equal contribution</span></p>
+  <nav class="paper-links" aria-label="Paper resources">
+    <a href="https://openreview.net/pdf?id=cb6gtKPcR8">Paper</a>
+    <a href="https://github.com/aiea-lab/Text2Space">Code</a>
+    <a href="https://huggingface.co/datasets/ShiyuanHuang/Text2Space">Dataset</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="guess" aria-label="A puzzle to try first">
+    <div class="wrap">
+      <p class="eyebrow try">Try this first <span aria-hidden="true">↓</span></p>
+
+      <div class="card">
+        <div class="brief">
+          <div class="brief-text">
+            <p class="card-label">Six places in a small town</p>
+            <p class="story" id="story"></p>
+          </div>
+          <figure class="dial">
+            <svg viewBox="-50 -50 100 100" role="img"
+                 aria-label="Clock face. 12 o'clock is straight up, 3 o'clock is to the right, 10:30 is up and to the left.">
+              <circle class="dial-face" r="48"></circle>
+              <g id="dial-hours"></g>
+              <g class="dial-hand" id="dial-hand">
+                <line y2="-22"></line>
+                <path d="M0 -29 L3.4 -21.5 L-3.4 -21.5 Z"></path>
+              </g>
+              <circle class="dial-pivot" r="2.6"></circle>
+            </svg>
+            <figcaption>Tap a direction in the text.</figcaption>
+          </figure>
+        </div>
+
+        <div class="ask">
+          <div class="ask-text">
+            <p class="question" id="question"></p>
+            <p class="instruction">Work it out in your head, then tap your answer. No drawing yet.</p>
+            <p class="guess-note" id="guess-note" aria-live="polite"></p>
+          </div>
+          <div class="compass" id="compass" role="group" aria-label="Your answer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sketch" aria-labelledby="sketch-heading">
+    <div class="wrap">
+      <h2 id="sketch-heading">Now draw it.</h2>
+      <p class="lede">Most people would reach for a pen. Tap a square to place the highlighted landmark.</p>
+
+      <div class="workspace">
+        <div class="notes">
+          <ol class="checklist" id="checklist"></ol>
+          <div class="tray" id="tray" role="group" aria-label="Places to put on the map"></div>
+          <div class="actions">
+            <button type="button" class="button" id="demo">Draw it for me</button>
+            <button type="button" class="button button-quiet" id="clear">Clear</button>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div class="board" id="board">
+            <div class="cells" id="cells"></div>
+            <svg class="sightline" id="sightline" viewBox="0 0 7 7" aria-hidden="true"><line></line></svg>
+            <div class="tokens" id="tokens"></div>
+          </div>
+          <p class="progress" id="progress" hidden></p>
+        </div>
+      </div>
+
+      <p class="reveal" id="reveal" aria-live="polite" hidden></p>
+    </div>
+  </section>
+
+  <section class="bridge" aria-labelledby="bridge-heading">
+    <div class="wrap">
+      <h2 id="bridge-heading">A sketch a language model can draw.</h2>
+      <p class="lede">
+        A language model writes only text. To study how it sketches, we put the map in text form:
+        an ASCII grid with one letter per place. The model can write this grid, and we can check it.
+      </p>
+
+      <figure class="translation" id="translation">
+        <div class="translation-pair">
+          <div class="minimap" id="minimap" aria-hidden="true"></div>
+          <div class="translation-arrow" aria-hidden="true">→</div>
+          <pre class="ascii" id="ascii" aria-label="The sketch as an ASCII grid"></pre>
+        </div>
+        <ul class="key" id="key"></ul>
+        <figcaption id="translation-caption"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-heading">
+    <div class="wrap">
+      <h2 id="closing-heading">People sketch to think about space. Do language models?</h2>
+      <p>If a model learns to sketch, does it reason better from words alone?</p>
+
+      <figure class="lesson">
+        <div class="step">
+          <span class="step-kicker">1 · Learn</span>
+          <h3>It practices one thing: drawing.</h3>
+          <p class="snippet">“<strong>A</strong> is above <strong>B</strong>. <strong>C</strong> is at 3 o'clock from <strong>B</strong>. <strong>D</strong> is northwest of <strong>A</strong>.”</p>
+          <span class="step-flow" aria-hidden="true">↓ ✏️</span>
+          <pre class="drawn-grid" aria-label="ASCII grid drawn from the description">+--+--+--+
+|D |  |  |
++--+--+--+
+|  |A |  |
++--+--+--+
+|  |B |C |
++--+--+--+</pre>
+          <p>Learning to draw ASCII from textual spatial descriptions.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-kicker">2 · Test</span>
+          <h3>Then it gets a question in words.</h3>
+          <p class="snippet">“<strong>D</strong> is below <strong>E</strong>. <strong>F</strong> is to the left of <strong>E</strong>. Where is <strong>D</strong> relative to <strong>F</strong>?”</p>
+          <div class="absent">
+            <pre class="ghost-grid" aria-hidden="true">+--+--+
+|  |  |
++--+--+
+|  |  |
++--+--+</pre>
+            <ul>
+              <li>No ASCII given</li>
+              <li>No ASCII drawn</li>
+            </ul>
+          </div>
+          <p>It reads the text and answers with a word.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-kicker">3 · Result</span>
+          <h3>And it answers better.</h3>
+          <p>The same question, to the same model:</p>
+          <ul class="answers">
+            <li class="before">
+              <span class="verdict" aria-label="wrong">✗</span>
+              <span class="when">Before learning to draw</span>
+              <span class="said">below</span>
+            </li>
+            <li class="after">
+              <span class="verdict" aria-label="right">✓</span>
+              <span class="when">After learning to draw</span>
+              <span class="said">lower-right</span>
+            </li>
+          </ul>
+        </div>
+
+        <figcaption>Synthetic example. More in the paper.</figcaption>
+      </figure>
+
+      <p class="finding">Learning to draw ASCII improves spatial reasoning in language models.</p>
+      <p class="closing-note"><a href="https://openreview.net/pdf?id=cb6gtKPcR8">Read the paper</a></p>
+      <p class="afterthought">What could learning to draw teach them?</p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
