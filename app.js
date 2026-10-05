@@ -284,8 +284,8 @@ function renderProgress(statuses) {
   const bad = statuses.filter((s) => s.status === "bad").length;
   $("progress").hidden = ok + bad === 0;
   $("progress").innerHTML =
-    `${ok} of ${sentences.length} sentences match your map` +
-    (bad ? `, <span class="drawn">${bad} ${bad === 1 ? "does" : "do"} not</span>.` : ".");
+    `${ok} of ${sentences.length} sentences ${ok === 1 ? "matches" : "match"} your map` +
+    (bad ? ` and <span class="drawn">${bad} ${bad === 1 ? "does" : "do"} not</span>.` : ".");
 }
 
 function renderChecklist() {
