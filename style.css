@@ -100,6 +100,7 @@ button {
 .lede {
   max-width: 40rem;
   color: var(--ink-soft);
+  text-wrap: balance;
 }
 
 /* ---------- hero: the paper ---------- */
@@ -748,11 +749,12 @@ button {
 }
 
 .closing .wrap > p {
-  max-width: 36rem;
+  max-width: 46rem;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.2rem;
   opacity: 0.9;
+  text-wrap: balance;
 }
 
 /* Learn, test, result: three cards read left to right, one arrow in each gap. */
