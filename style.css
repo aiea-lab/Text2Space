@@ -136,6 +136,7 @@ button {
 .paper-links {
   margin-top: 1.6rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.6rem;
 }
@@ -1043,6 +1044,21 @@ button {
     height: var(--step-gap);
     line-height: var(--step-gap);
     transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Four buttons do not fit one row on a phone; two by two reads better than three plus one. */
+  .paper-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 16rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .paper-links a {
+    text-align: center;
   }
 }
 
