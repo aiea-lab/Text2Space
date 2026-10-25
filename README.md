@@ -1,12 +1,13 @@
+# Learning to Draw ASCII Improves Spatial Reasoning in Language Models
 
-# Text2Space: A Benchmark Pairing Spatial Descriptions, ASCII Layouts, and Spatial QA
+### Text2Space: A Benchmark Pairing Spatial Descriptions, ASCII Layouts, and Spatial QA
 
-Code and data for our COLM 2026 paper - Learning to Draw ASCII Improves Spatial Reasoning in Language Models
+Code and data for our COLM 2026 paper.
 
 **Shiyuan Huang\*, Li Liu\*, Jincheng He, Leilani H. Gilpin** — University of California, Santa Cruz
 *\*Equal contribution*
 
-[Paper](https://arxiv.org/abs/2604.14641) · [Dataset](https://huggingface.co/datasets/ShiyuanHuang/Text2Space)
+[Project Page](https://aiea-lab.github.io/Text2Space/) · [Paper](https://arxiv.org/abs/2604.14641) · [Dataset](https://huggingface.co/datasets/ShiyuanHuang/Text2Space)
 
 ## About
 
